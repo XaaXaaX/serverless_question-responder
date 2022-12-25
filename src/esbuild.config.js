@@ -5,7 +5,8 @@ require('esbuild').build({
         `${handlerPath}/Api/Connection/index.ts`,
         `${handlerPath}/Api/Deconnection/index.ts`,
         `${handlerPath}/Process/DetectLanguage/index.ts`,
-        `${handlerPath}/Process/Ask/index.ts`
+        `${handlerPath}/Process/Ask/index.ts`,
+        `${handlerPath}/Process/GenerateAudio/index.ts`
     ],
     entryNames: '[dir]/[name]',
     outbase:'.',
@@ -15,5 +16,12 @@ require('esbuild').build({
     sourcemap: false,
     outdir: `${bundledPath}`,
     platform: 'node',
-    write: true    
+    write: true,
+    watch: {
+        onRebuild(error, result) {
+          if (error) console.error('watch build failed:', error)
+          else console.log('watch build succeeded:', result)
+        },
+      },
+}).then( result => { console.log('watching...')
 }).catch(() => process.exit());
