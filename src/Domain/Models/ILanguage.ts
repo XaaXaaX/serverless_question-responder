@@ -1,5 +1,11 @@
-interface ILanguage {}
+interface ILanguage { 
+    GetLanguageTag(): string;
+}
 
-const DefaultLanguage: ILanguage = {}
+const DefaultLanguage: ILanguage = {
+    GetLanguageTag(): string {
+        return "en-US";
+    }
+}
 
 export { ILanguage, DefaultLanguage }
