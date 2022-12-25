@@ -2,7 +2,7 @@ import { ComprehendClient, DetectDominantLanguageCommand, DetectDominantLanguage
 import { Language } from "Domain/UseCase/DetectLanguage/Entities/Language";
 import { ILanguageDetectionRepository } from "../../Domain/UseCase/DetectLanguage/Ports/ILanguageDetectionRepository";
 class LanguageRepository implements ILanguageDetectionRepository{
-    constructor(private readonly client: ComprehendClient) { }
+    constructor(@inject(ComprehendClient) private readonly client: ComprehendClient) { }
 
     Detect = async (text: string): Promise<Language> => {
 

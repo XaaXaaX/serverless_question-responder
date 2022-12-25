@@ -1,12 +1,14 @@
+import { inject, injectable } from "tsyringe";
 import { Language } from "../Entities/Language";
 import { ILanguageDetectionRepository } from "../Ports/ILanguageDetectionRepository";
 import { ILanguageDetectionService } from "./ILanguageDetecttionService";
 
+@injectable()
 class LanguageDetectionService implements ILanguageDetectionService {
-    constructor(private readonly languageRepository: ILanguageDetectionRepository) {}
+    constructor(@inject("ILanguageDetectionRepository") private readonly repository: ILanguageDetectionRepository) {}
     
     Detect = async (text: string): Promise<Language> => {
-        return await this.languageRepository.Detect(text);
+        return await this.repository.Detect(text);
     }
 }
 

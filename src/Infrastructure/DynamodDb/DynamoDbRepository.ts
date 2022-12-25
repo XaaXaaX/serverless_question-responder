@@ -7,10 +7,11 @@ import {
 } from "@aws-sdk/client-dynamodb";
 
   import { marshall } from "@aws-sdk/util-dynamodb";
+import { inject } from "tsyringe";
   
   abstract class DynamoDbRepository<M,E> {
     constructor(
-      private readonly client: DynamoDBClient,
+      @inject(DynamoDBClient) private readonly client: DynamoDBClient,
       private readonly tableName: string = process.env.TableName) {}
   
     PutItem = async (model: M): Promise<M> => {

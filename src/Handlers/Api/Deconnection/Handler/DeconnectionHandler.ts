@@ -6,13 +6,13 @@ import { IDeconnectionService } from "Domain/UseCase/Deconnect";
 @injectable()
 class DeconnectionHandler {
     constructor(
-        @inject("IDeconnectionService") private readonly repository: IDeconnectionService
+        @inject("IDeconnectionService") private readonly service: IDeconnectionService
     ) { }
 
     Invoke = async (event: APIGatewayProxyEvent): Promise<any> => {
         const {  requestContext: { connectionId } } = event;
         try {
-            await this.repository.UnSubscribe(connectionId as string);
+            await this.service.UnSubscribe(connectionId as string);
             return ActionResults.Success("sucess");
 
         } catch (error) {
