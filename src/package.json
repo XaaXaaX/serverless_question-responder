@@ -1,0 +1,25 @@
+{
+  "name": "question-responder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@aws-sdk/client-apigatewaymanagementapi": "^3.238.0",
+    "@aws-sdk/client-comprehend": "^3.238.0",
+    "@aws-sdk/client-dynamodb": "^3.238.0",
+    "@aws-sdk/client-polly": "^3.238.0",
+    "@aws-sdk/client-s3": "^3.238.0",
+    "@aws-sdk/client-sfn": "^3.238.0",
+    "@aws-sdk/util-dynamodb": "^3.238.0",
+    "@types/aws-lambda": "^8.10.109"
+  },
+  "dependencies": {
+    "reflect-metadata": "^0.1.13",
+    "tsyringe": "^4.7.0"
+  }
+}
